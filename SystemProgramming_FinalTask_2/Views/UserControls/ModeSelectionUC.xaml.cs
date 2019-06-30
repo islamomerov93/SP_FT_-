@@ -22,11 +22,13 @@ namespace SystemProgramming_FinalTask_2.Views.UserControls
     public partial class ModeSelectionUC : UserControl
     {
         ModeSelectionUCVM modeSelectionUCVM;
-        public ModeSelectionUC()
+        public ModeSelectionUC(Grid grid,Window window)
         {
             InitializeComponent();
             modeSelectionUCVM = new ModeSelectionUCVM();
-            modeSelectionUCVM
+            window.Height = UCW.Height;
+            window.Width = UCW.Width;
+            grid.Children.Add(this);
         }
     }
 }

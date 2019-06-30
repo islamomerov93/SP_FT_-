@@ -11,13 +11,6 @@ namespace SystemProgramming_FinalTask_2.ViewModels
 {
     class ModeSelectionUCVM
     {
-        public ModeSelectionUCVM(Grid grid,Window Window)
-        {
-            ModeSelectionUC modeSelectionUC = new ModeSelectionUC();
-            Window.Height = modeSelectionUC.Height;
-            Window.Width = modeSelectionUC.Width;
-            grid.Children.Add(modeSelectionUC);
-        }
-        public ModeSelectionUCVM() { }
+
     }
 }

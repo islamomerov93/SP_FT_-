@@ -15,7 +15,7 @@ namespace SystemProgramming_FinalTask_2.ViewModels
 
         public MainWindowVM(Grid grid, Window Window)
         {
-            ModeSelectionUCVM = new ModeSelectionUCVM(grid,Window);
+            ModeSelectionUC modeSelectionUC = new ModeSelectionUC(grid, Window);
         }
     }
 }

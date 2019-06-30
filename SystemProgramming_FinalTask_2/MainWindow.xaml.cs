@@ -26,7 +26,7 @@ namespace SystemProgramming_FinalTask_2
         public MainWindow()
         {
             InitializeComponent();
-            mainWindowVM = new MainWindowVM(MainGrid,MW);
+            mainWindowVM = new MainWindowVM(ref MainGrid,ref MW);
             DataContext = mainWindowVM;
         }
     }
