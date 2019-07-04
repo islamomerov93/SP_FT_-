@@ -5,8 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemProgramming_FinalTask_2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="800">
-    <Grid x:Name="MainGrid">
-        
+        Title="MainWindow" Height="400" Width="800" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="MouseOver_GradientEffect" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF5BB75B" Offset="0" />
+            <GradientStop Color="#FF398239" Offset="1" />
+        </LinearGradientBrush>
+        <Style TargetType="{x:Type Button}">
+
+            <Setter Property="FontSize" Value="11" />
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Name="ButtonBorder" CornerRadius="2" BorderBrush="#387f38" BorderThickness="1">
+                            <Border.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF5BB75B" Offset="0" />
+                                    <GradientStop Color="#FF449B44" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <ContentPresenter x:Name="ButtonContentPresenter" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="{StaticResource MouseOver_GradientEffect}" />
+                                <Setter Property="Cursor" Value="Hand" />
+                                <Setter Property="Foreground" Value="LightGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border  BorderBrush="Black" BorderThickness="3" CornerRadius="10" Margin="5" Loaded="Border_Loaded" Background="Black">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <TextBlock Text="TASK MANAGER" Foreground="GhostWhite" Margin=" 0 0 150 0" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" FontFamily="TimesNewRoman"/>
+                <Button Width="25" Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center" Click="BackBtnClick">⬅</Button>
+                <Button Width="25" Margin="2" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ExitBtnClick">✘</Button>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Row="1" x:Name="MainGrid">
+
+        </Grid>
     </Grid>
 </Window>

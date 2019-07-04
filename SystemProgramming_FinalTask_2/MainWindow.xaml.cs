@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,8 +27,26 @@ namespace SystemProgramming_FinalTask_2
         public MainWindow()
         {
             InitializeComponent();
-            mainWindowVM = new MainWindowVM(ref MainGrid,ref MW);
+            mainWindowVM = new MainWindowVM();
+            mainWindowVM.Grid = MainGrid;
+            mainWindowVM.Window = MW;
+            mainWindowVM.ModeSelectionUCBtnClick.Execute(0);
             DataContext = mainWindowVM;
+        }
+
+        private void BackBtnClick(object sender, RoutedEventArgs e)
+        {
+            mainWindowVM.ModeSelectionUCBtnClick.Execute(0);
+        }
+
+        private void ExitBtnClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void Border_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.MouseDown += delegate { DragMove(); };
         }
     }
 }

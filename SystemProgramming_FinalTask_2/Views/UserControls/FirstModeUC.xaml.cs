@@ -17,16 +17,18 @@ using SystemProgramming_FinalTask_2.ViewModels;
 namespace SystemProgramming_FinalTask_2.Views.UserControls
 {
     /// <summary>
-    /// Interaction logic for ModeSelection.xaml
+    /// Interaction logic for FirstModeUC.xaml
     /// </summary>
-    public partial class ModeSelectionUC : UserControl
+    public partial class FirstModeUC : UserControl
     {
-        public ModeSelectionUC(MainWindowVM MainWindowVM)
+        FirstModeVM FirstModeVM;
+        public FirstModeUC(Window window)
         {
             InitializeComponent();
-            DataContext = MainWindowVM;
-            MainWindowVM.Window.Height = UCW.Height+36;
-            MainWindowVM.Window.Width = UCW.Width+14;
+            FirstModeVM = new FirstModeVM();
+            DataContext = FirstModeVM;
+            window.Height = UCW.Height + 36;
+            window.Width = UCW.Width + 14;
         }
     }
 }

@@ -5,17 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using SystemProgramming_FinalTask_2.Commands.UCCommands;
 using SystemProgramming_FinalTask_2.Views.UserControls;
 
 namespace SystemProgramming_FinalTask_2.ViewModels
 {
-    class MainWindowVM
+    public class MainWindowVM
     {
-        ModeSelectionUCVM ModeSelectionUCVM;
+        public Grid Grid { get; set; } = new Grid();
+        public Window Window { get; set; } = new Window();
+        public UCBtnClick ModeSelectionUCBtnClick { get; set; }
 
-        public MainWindowVM(Grid grid, Window Window)
+
+        public MainWindowVM()
         {
-            ModeSelectionUC modeSelectionUC = new ModeSelectionUC(grid, Window);
+            ModeSelectionUCBtnClick = new UCBtnClick(this);
         }
     }
 }
